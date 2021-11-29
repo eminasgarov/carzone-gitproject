@@ -1,5 +1,7 @@
+from django.core.checks import messages
 from django.shortcuts import render
 from cars.models import Car
+from django.contrib import messages
 
 from pages.models import Team
 
@@ -35,6 +37,8 @@ def about(request):
 def services(request):
     return render(request, 'pages/services.html')
 
-def contact(request):
-    return render(request, 'pages/contact.html')
+
+def services(request):
+    return render(request, 'pages/services.html')
+
 
