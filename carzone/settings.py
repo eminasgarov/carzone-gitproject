@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os.path
+import dj_database_url
 from pathlib import Path
 from django.contrib import messages
 
@@ -24,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-=da-o6va3*)cb9u3x%3uz7)fz52g8y6idkc8g2pc_breraa56r'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -90,15 +91,17 @@ WSGI_APPLICATION = 'carzone.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'carzone_db',
-        'USER': 'postgres',
-        'PASSWORD': 'Emishok77',
-        'HOST': 'localhost',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'carzone_db',
+#         'USER': 'postgres',
+#         'PASSWORD': 'Emishok77',
+#         'HOST': 'localhost',
+#     }
+# }
+DATABASES = {'default': dj_database_url.config(default='postgres://postgres:Emishok77@localhost/carzone_db')}
+
 
 
 # Password validation
@@ -168,3 +171,6 @@ SITE_ID = 1
 #EMAIL_HOST_USER = 'asgarov.emin@gmail.com'
 #EMAIL_HOST_PASSWORD = 'Emishok77'
 #EMAIL_USE_TLS = True
+
+#Whitenoise settings
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
