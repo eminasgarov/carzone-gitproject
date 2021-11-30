@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-=da-o6va3*)cb9u3x%3uz7)fz52g8y6idkc8g2pc_breraa56r
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['warm-mesa-23180.herokuapp.com']
 
 LOGIN_REDIRECT_URL = 'dashboard'
 
@@ -65,6 +65,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'carzone.urls'
